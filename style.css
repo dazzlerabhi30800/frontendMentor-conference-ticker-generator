@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --background-image: url("./assets/images/background-mobile.png");
+  --pattern-bottom-img: url("./assets/images/pattern-squiggly-line-bottom-desktop.svg");
+}
+
+.line--pattern {
+  position: absolute;
+  background: url("./assets/images/pattern-lines.svg") no-repeat center;
+  background-size: cover;
+  z-index: 10;
+  height: 80vh;
+  width: 100%;
+}
+.pattern--top {
+  position: absolute;
+  background: url("./assets/images/pattern-squiggly-line-top.svg") no-repeat
+    center;
+  background-size: cover;
+  z-index: 5;
+  height: 150px;
+  width: 300px;
+  top: 20px;
+  right: 0px;
+}
+.pattern--bottom {
+  position: absolute;
+  background: var(--pattern-bottom-img) no-repeat center;
+  background-size: cover;
+  z-index: 5;
+  height: 180px;
+  width: 350px;
+  bottom: 0;
+  left: 0;
+}
+
+body {
+  font-family: "Overpass", sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  min-height: 100vh;
+  background: var(--background-image) no-repeat;
+  background-size: cover;
+  width: 100%;
+  z-index: 100;
+}
+
+.header--wrapper {
+  background: url("./assets/images/pattern-lines.svg") no-repeat;
+  width: 100%;
+}
+
+input {
+  /* background: rgb(29, 29, 63); */
+  position: relative;
+  z-index: 100;
+  background: transparent;
+  backdrop-filter: blur(10px);
+}
+
+#full--name {
+  background: linear-gradient(to right, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ticket--container {
+  background: url("./assets/images/pattern-ticket.svg") no-repeat;
+  background-size: cover;
+}
+
+@media Screen and (width >= 768px) {
+  :root {
+    --background-image: url("./assets/images/background-tablet.png");
+    --pattern-bottom-img: url("./assets/images/pattern-squiggly-line-bottom-desktop.svg");
+  }
+
+  .pattern--top {
+    height: 200px;
+    width: 400px;
+    top: 50px;
+  }
+
+  .pattern--bottom {
+    height: 300px;
+    width: 550px;
+  }
+}
+
+@media Screen and (width >= 1200px) {
+  :root {
+    --background-image: url("./assets/images/background-desktop.png");
+  }
+}

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Conference ticket generator</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  </head>
+  <body>
+    <!-- Form starts -->
+    <main class="px-6 md:px-10 lg:px-14 relative">
+      <!-- Line Pattern Bg -->
+      <div class="line--pattern"></div>
+      <!-- Circle left  Top -->
+      <img
+        src="./assets/images/pattern-circle.svg"
+        class="absolute -top-12 left-20 w-40 h-40 z-20"
+      />
+
+      <!-- Circle Right Center -->
+      <img
+        src="./assets/images/pattern-circle.svg"
+        class="absolute top-1/2 translate-y-[20%] right-[20%] sm:right-[30%] w-40 h-40 z-20"
+      />
+      <!-- Line Top -->
+      <div class="pattern--top"></div>
+      <!-- pattern Bottom -->
+      <div class="pattern--bottom"></div>
+
+      <div id="info--wrapper">
+        <header class="flex text-white text-center flex-col gap-2 h-auto pt-5">
+          <!-- Logo -->
+          <div class="flex justify-center w-full">
+            <img
+              src="./assets/images/logo-full.svg"
+              class="w-[150px] md:w-[200px] h-auto"
+              alt="Coding Conf"
+            />
+          </div>
+          <h1 class="text-xl md:text-2xl font-bold mt-4">
+            Your Journey to Coding Conf 2025 Starts Here!
+          </h1>
+          <p class="text-sm">
+            Secure your spot at next year's biggest coding conference.
+          </p>
+        </header>
+        <!-- Form -->
+        <form
+          class="flex flex-col gap-6 mx-auto max-w-xl group mt-10 text-white"
+        >
+          <!-- File Upload -->
+          <div class="flex flex-col gap-2 text-white">
+            <p class="font-bold text-xl mb-5">Upload Avatar</p>
+            <!-- File Input -->
+            <input
+              class="hidden"
+              type="file"
+              accept="image/*"
+              id="avatarInput"
+            />
+            <label
+              for="avatarInput"
+              id="avatarLabel"
+              class="flex flex-col gap-5 justify-center items-center p-5 rounded-md h-32 bg-[#0c082b] border-dashed border-2 border-orange-500 hover:border-orange-800 cursor-pointer"
+            >
+              <div class="p-2 rounded-md bg-white/20 backdrop-blur-md">
+                <img
+                  src="./assets/images/icon-upload.svg"
+                  class="h-7 w-7"
+                  alt="file-upload"
+                />
+              </div>
+              <p class="group-hover:text-orange-500">
+                Drag & Drop your files to upload
+              </p>
+            </label>
+            <div
+              id="avatarWrapper"
+              class="hidden flex-col items-center gap-4 p-4 rounded-md min-h-32 border-dashed border-2 border-orange-500 hover:border-orange-800"
+            >
+              <img
+                id="avatarImg"
+                class="w-14 h-14 rounded-lg border-2 border-orange-500"
+                alt="Avatar Image"
+              />
+              <!-- button -->
+              <div class="flex items-center text-sm gap-5">
+                <button
+                  type="button"
+                  id="remove--img"
+                  class="font-medium py-1 px-2 bg-violet-900 rounded-md hover:underline"
+                >
+                  Remove Image
+                </button>
+                <label
+                  for="avatarInput"
+                  class="font-medium py-1 px-2 bg-violet-900 rounded-md hover:underline"
+                  id="change--img"
+                >
+                  Change Image
+                </label>
+              </div>
+            </div>
+            <!-- Error Message -->
+            <small
+              id="message"
+              class="text-gray-300 mt-2 font-medium flex items-center gap-3 text-sm"
+            >
+              <img src="./assets/images/icon-info.svg" class="w-6 h-6" alt="" />
+              <span>Upload your photo (JPG or PNG, max size: 500KB).</span>
+            </small>
+          </div>
+
+          <!-- full Name input -->
+          <div class="flex flex-col gap-1 mt-4">
+            <label for="fullname" class="text-sm">Full Name</label>
+            <input
+              type="text"
+              id="fullname"
+              placeholder="Abhishek Choudhary"
+              class="p-2 border border-violet-100 focus:outline-none rounded-md"
+            />
+          </div>
+
+          <!-- Email Address -->
+          <div class="flex flex-col gap-1">
+            <label class="text-sm" for="emailAddress">Email</label>
+            <input
+              type="text"
+              placeholder="test@gmail.com"
+              id="emailAddress"
+              class="p-2 border border-violet-100 focus:outline-none rounded-md"
+            />
+          </div>
+
+          <!-- Github Username -->
+          <div class="flex flex-col gap-1">
+            <label class="text-sm" for="github--username"
+              >Github Username</label
+            >
+            <input
+              type="text"
+              placeholder="@dazzlerabhi30800"
+              id="github--username"
+              class="p-2 border border-violet-100 focus:outline-none rounded-md"
+            />
+          </div>
+
+          <button
+            class="bg-orange-600 hover:bg-orange-500 rounded-lg py-2 px-6 text-white font-bold"
+          >
+            Generate my Ticket
+          </button>
+        </form>
+      </div>
+
+      <!-- Ticket Submit Wrapper -->
+      <div class="hidden" id="ticket--wrapper">
+        <div
+          class="flex text-white text-center items-center flex-col gap-10 h-auto pt-16"
+        >
+          <!-- Logo -->
+          <div class="flex justify-center w-full">
+            <img
+              src="./assets/images/logo-full.svg"
+              class="w-[150px] md:w-[200px] h-auto"
+              alt="Coding Conf"
+            />
+          </div>
+          <h1 class="text-xl md:text-3xl max-w-xl font-bold mt-4">
+            Congrats, <span id="full--name">Full Name</span> ! Your ticket is
+            ready.
+          </h1>
+          <p class="text-sm w-full font-medium max-w-[350px]">
+            We've emailed your ticket to
+            <span class="text-orange-500" id="user--email">email</span> and will
+            send updates in the run up to the event.
+          </p>
+        </div>
+        <!-- Ticket Container -->
+        <div
+          class="ticket--container flex flex-col justify-between h-[163px] w-[350px] sm:h-[210px] md:h-[256px] sm:w-[450px] md:w-[550px] mx-auto mt-16"
+        >
+          <!-- Top Container -->
+          <div class="w-fit text-xs md:text-base py-3 px-4">
+            <img
+              src="./assets/images/logo-full.svg"
+              class="w-28 h-7 md:w-40 md:h-10"
+              alt=""
+            />
+            <p class="text-xs ml-9 mt-1 text-gray-200">
+              Jan 31, 2025 / Austin, TX
+            </p>
+          </div>
+          <!-- User Info -->
+          <div class="px-4 pb-6 flex items-center gap-4">
+            <img
+              src=""
+              id="user--img"
+              class="w-12 h-12 md:w-16 md:h-16 object-cover rounded-md"
+              alt=""
+            />
+            <div class="flex flex-col text-white md:gap-1">
+              <h2 id="user--name" class="text-sm md:text-xl">
+                Abhishek Choudhary
+              </h2>
+              <p class="flex items-center gap-2">
+                <img
+                  src="./assets/images/icon-github.svg"
+                  class="w-5 h-5 md:w-8 md:h-8"
+                  alt="github--icon"
+                />
+                <span class="text-xs md:text-sm" id="github--name"
+                  >@dazzlerabhi30800</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="./index.js"></script>
+</html>
