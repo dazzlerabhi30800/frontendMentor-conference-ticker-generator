@@ -40,6 +40,10 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+label {
+  position: relative;
+  z-index: 200;
+}
 
 main {
   min-height: 100vh;
