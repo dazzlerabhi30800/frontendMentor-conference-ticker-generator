@@ -9,7 +9,7 @@
   position: absolute;
   background: url("./assets/images/pattern-lines.svg") no-repeat center;
   background-size: cover;
-  z-index: 10;
+  z-index: 1;
   height: 80vh;
   width: 100%;
 }
@@ -18,7 +18,7 @@
   background: url("./assets/images/pattern-squiggly-line-top.svg") no-repeat
     center;
   background-size: cover;
-  z-index: 5;
+  z-index: 1;
   height: 150px;
   width: 300px;
   top: 20px;
@@ -28,7 +28,7 @@
   position: absolute;
   background: var(--pattern-bottom-img) no-repeat center;
   background-size: cover;
-  z-index: 5;
+  z-index: 1;
   height: 180px;
   width: 350px;
   bottom: 0;
@@ -39,6 +39,8 @@ body {
   font-family: "Overpass", sans-serif;
   width: 100%;
   overflow-x: hidden;
+  background: var(--background-image) no-repeat;
+  background-size: cover;
 }
 label {
   position: relative;
@@ -47,10 +49,17 @@ label {
 
 main {
   min-height: 100vh;
-  background: var(--background-image) no-repeat;
-  background-size: cover;
   width: 100%;
-  z-index: 100;
+  position: relative;
+  z-index: 444;
+}
+
+.showErr {
+  transform: translateY(0) !important;
+  visibility: visible !important;
+  text-align: center;
+  font-weight: 700;
+  color: red;
 }
 
 .header--wrapper {
@@ -70,6 +79,11 @@ input {
   background: linear-gradient(to right, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+#ticket--wrapper {
+  position: relative;
+  z-index: 444;
 }
 
 .ticket--container {
